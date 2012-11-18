@@ -1,0 +1,45 @@
+﻿<legend>Create/Update Categories</legend>
+
+<div class="row">
+    <div class="span6" ng-show="OperationResultMessage != null">
+        <div data-alert-tbs=""
+            data-message-data="OperationResultMessage"
+            data-hide-in="5">
+        </div>
+    </div>
+</div>
+
+
+<form name="frmCategory" class=" well">
+    <div class="row">
+        <div class="span4">
+            <input type="text" class="input-xlarge" id="inputCategoryName" placeholder="Name" data-ng-model="Category.Name" value="{{Category.Name}}" required>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="submit" value="{{Labels.btnSave}}" class="btn btn-primary" data-ng-disabled="!frmCategory.$valid " data-ng-class="{disabled: !frmCategory.$valid}" data-ng-click="btnSave_Click()" />
+                    <input type="submit" value="Delete" class="btn  btn-small" data-ng-disabled="!Category.Id" data-ng-class="{disabled:!Category.Id}" data-ng-click="btnDelete_Click()" />
+                    <input type="button" value="Clear" class="btn btn-link  btn-small" data-ng-disabled="!Category.Name" data-ng-click="btnClear_Click()" />
+                </div>
+            </div>
+        </div>
+        <div class="span4">
+            <input type="text" name="filterByName" data-ng-model="filterByName" placeholder="name filter" />
+            <table id="categoriesList" class="table table-striped table-bordered table-condensed" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody class="scrollableList300">
+                    <tr data-ng-repeat="category in CategoriesList | filter: filterByName">
+                        <td data-ng-click="SelectCategoryForUpdate(category)"><span>{{category.Name}}</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+        </div>
+    </div>
+</form>

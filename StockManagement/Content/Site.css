@@ -1,0 +1,23 @@
+﻿.scrollableList300 {
+    height: 300px;
+    overflow: auto;
+    display: block;
+    width: 100%;
+}
+
+#categoriesList {
+    width: 300px;
+}
+
+    #categoriesList tr, #categoriesList td {
+        width: 300px;
+    }
+
+
+    #categoriesList thead {
+        background-color: #b6ff00;
+    }
+
+    #categoriesList td {
+        cursor: pointer;
+    }

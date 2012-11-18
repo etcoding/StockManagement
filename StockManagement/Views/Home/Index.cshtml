@@ -1,0 +1,21 @@
+﻿<div id="wrapper" data-ng-controller="IndexController">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <a class="brand" href="#">Stock Management</a>
+            <ul class="nav">
+                <li data-ng-class="{'active': currentPath == '/products' }"><a href="#/products">Products</a></li>
+                <li data-ng-class="{'active': currentPath == '/categories' }"><a href="#/categories">Categories</a></li>
+                <li data-ng-class="{'active': currentPath == '/stores' }"><a href="#/stores">Stores</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div data-ng-view=""></div>
+
+    <script type="text/javascript">
+
+        $(function () {
+            angular.bootstrap(document, ['views', 'ngResource', 'directives']);
+        });
+    </script>
+</div>

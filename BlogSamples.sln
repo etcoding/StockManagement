@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement", "StockManagement\StockManagement.csproj", "{EFB32C40-C6A3-444E-AEAD-8A184EC5FB5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Tests", "StockManagement.Tests\StockManagement.Tests.csproj", "{809F3DFD-7FC7-4E94-894C-7238DF4E5037}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFB32C40-C6A3-444E-AEAD-8A184EC5FB5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFB32C40-C6A3-444E-AEAD-8A184EC5FB5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFB32C40-C6A3-444E-AEAD-8A184EC5FB5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFB32C40-C6A3-444E-AEAD-8A184EC5FB5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{809F3DFD-7FC7-4E94-894C-7238DF4E5037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{809F3DFD-7FC7-4E94-894C-7238DF4E5037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{809F3DFD-7FC7-4E94-894C-7238DF4E5037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{809F3DFD-7FC7-4E94-894C-7238DF4E5037}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

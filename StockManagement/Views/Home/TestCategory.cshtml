@@ -1,0 +1,69 @@
+﻿@model StockManagement.Models.Category
+
+@{
+    ViewBag.Title = "TestCategory";
+}
+
+<h2>TestCategory</h2>
+
+<form action="/api/Category/" method="post">
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Category</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <p>
+            <input type="button" id="btn" value="Create" />
+        </p>
+    </fieldset>
+
+</form>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script type="text/javascript">
+
+    $("#btn").click(function () {
+
+        $.ajax({
+            url: "/api/Category/",
+            data: { Name: "vv" },
+            type: "POST",
+            dataType: "json",
+            statusCode: {
+                201: function () {
+                    console.log("Created!");
+                },
+                404: function () {
+                    console.log("not found");
+                }
+            }
+        }).done(function (data, textStatus, jqXHR) {
+            console.log("response: ", data)
+            console.log("textStatus: ", textStatus);
+            console.log("xhr : ", jqXHR);
+        }).fail(function (data, textStatus, jqXHR) {
+            console.log("failed");
+            console.log("response: ", data)
+            console.log("textStatus: ", textStatus);
+            console.log("xhr : ", jqXHR);
+        }).always(function (data, textStatus, jqXHR) {
+            console.log("always");
+            console.log("response: ", data)
+            console.log("textStatus: ", textStatus);
+            console.log("xhr : ", jqXHR);
+        });
+    });
+</script>
