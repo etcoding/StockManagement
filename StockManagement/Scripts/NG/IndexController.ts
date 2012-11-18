@@ -1,6 +1,6 @@
-/// <reference path="../AngularTS/angular.d.ts" />
+/// <reference path="../dts/angular-1.0.d.ts" />
 
-class IndexController {
+class IndexController { 
     constructor (private $scope: any, private $location: any) {
         $scope.currentPath = $location.path();
 
