@@ -28,7 +28,7 @@
 
             <div class="control-group">
                 <div class="controls">
-                    <input type="submit" value="{{Labels.btnSave}}" class="btn btn-primary" data-ng-disabled="!frmProduct.$valid " data-ng-class="{disabled: !frmProduct.$valid}" data-ng-click="btnSave_Click()" />
+                    <input type="submit" value="{{Labels.btnSave}}" class="btn btn-primary" data-ng-disabled="!IsFormValid()" data-ng-class="{disabled: !IsFormValid()}" data-ng-click="btnSave_Click()" />
                     <input type="submit" value="Delete" class="btn  btn-small" data-ng-disabled="!Product.Id" data-ng-class="{disabled:!Product.Id}" data-ng-click="btnDelete_Click()" />
                     <input type="button" value="Clear" class="btn btn-link  btn-small" data-ng-disabled="!Product.Name" data-ng-click="btnClear_Click()" />
                 </div>

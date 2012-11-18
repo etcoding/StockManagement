@@ -16,6 +16,8 @@ module Product {
         Labels: any;
 
         SelectProductForUpdate(Product: ProductModel): void;
+        // This has to have some logic - that is at least one category has to be checked.. easier to do in function
+        IsFormValid(): bool;
 
         btnSave_Click(): void;
         btnClear_Click(): void;

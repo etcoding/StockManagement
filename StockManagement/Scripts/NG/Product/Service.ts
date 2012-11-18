@@ -8,8 +8,11 @@ module Product {
         constructor (private resource: ng.resource.IResourceService) {
         }
 
-        GetAll(filter: ODataFilter, success: (categories: ProductModel[]) => any, error: (reason: any) =>any) {
+        GetAll(filter: ODataFilter, success: (products: ProductModel[]) => any, error: (reason: any) =>any) {
             var provider = this.resource("/api/Product/");
+
+            // interesting issue here - even though I expect an array of ProductModel, I get instances of  Resource class..
+            // which means I only get data, no code
             provider.query(filter, success, error);
         }
 

@@ -68,6 +68,7 @@ var Product;
             };
             scope.Labels.btnSave = "Create";
             scope.OperationResultMessage = null;
+            scope.Product = new Product.ProductModel();
             Controller.categoryService.GetAll(null, function (categories) {
                 scope.CategoriesList = categories;
             }, function (reason) {
@@ -80,7 +81,6 @@ var Product;
                 scope.Product && scope.Product.Id ? scope.Labels.btnSave = "Update" : scope.Labels.btnSave = "Create";
             });
             scope.SelectProductForUpdate = function (product) {
-                console.log("setting Product for update", product);
                 scope.Product = product;
                 scope.CategoriesList.forEach(function (c) {
                     if(product.Categories == null) {
@@ -98,7 +98,7 @@ var Product;
             };
             scope.btnSave_Click = function () {
                 var categories = scope.CategoriesList.findAll(function (c) {
-                    return c.Checked == true;
+                    return c.Checked;
                 });
                 scope.Product.Categories = categories;
                 console.log("Saving a product: ", scope.Product);
@@ -112,9 +112,14 @@ var Product;
                 Controller.Delete(scope.Product);
             };
             scope.btnClear_Click = function () {
-                scope.Product = null;
+                scope.Product = new Product.ProductModel();
                 scope.CategoriesList.forEach(function (c) {
                     c.Checked = false;
+                });
+            };
+            scope.IsFormValid = function () {
+                return scope.Product && scope.Product.Name && scope.Product.Name.length > 0 && scope.CategoriesList.some(function (c) {
+                    return c.Checked;
                 });
             };
         };

@@ -40,7 +40,8 @@ module Product {
 
         static GetAll() {
             return service.GetAll(null,
-                function (products: ProductModel[]) {
+                function (products: ProductModel[]) { // note that even though I'm expecting a ProductModel array here, I'm really getting instances of Resource type, which is just data
+
                     Controller.scope.ProductsList = products;
                 }, function (reason: any) {
                     Controller.scope.OperationResultMessage = new OperationResultMessage("Oops", "Failed to retrieve products", ResultMessageTypes.Error);
@@ -84,6 +85,7 @@ module Product {
             scope.Labels = {};
             scope.Labels.btnSave = "Create";
             scope.OperationResultMessage = null;
+            scope.Product = new ProductModel();
 
             // load all categories
             Controller.categoryService.GetAll(null,
@@ -102,7 +104,6 @@ module Product {
                 });
 
             scope.SelectProductForUpdate = function (product: ProductModel) {
-                console.log("setting Product for update", product);
                 scope.Product = product;
 
                 scope.CategoriesList.forEach(function (c: CategoryModelCheckable) {
@@ -118,7 +119,7 @@ module Product {
             }
 
             scope.btnSave_Click = function () {
-                var categories = scope.CategoriesList.findAll(function (c: CategoryModelCheckable) { return c.Checked == true; });
+                var categories = scope.CategoriesList.findAll(function (c: CategoryModelCheckable) { return c.Checked; });
                 scope.Product.Categories = categories;
                 console.log("Saving a product: ", scope.Product);
                 if (scope.Product.Id != null) {
@@ -134,8 +135,12 @@ module Product {
             }
 
             scope.btnClear_Click = function () {
-                scope.Product = null;
+                scope.Product = new ProductModel();
                 scope.CategoriesList.forEach(function (c: CategoryModelCheckable) { c.Checked = false; });
+            }
+
+            scope.IsFormValid = function () {
+                return scope.Product && scope.Product.Name && scope.Product.Name.length > 0 && scope.CategoriesList.some(function (c: CategoryModelCheckable) { return c.Checked; });
             }
         }
     }
