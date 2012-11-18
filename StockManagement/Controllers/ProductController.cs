@@ -72,11 +72,12 @@ namespace StockManagement.Controllers
 
             using (var session = Raven.Instance.Store.OpenSession())
             {
-                var cat = session.Load<Product>(product.Id);
-                if (cat == null)
+                var prod = session.Load<Product>(product.Id);
+                if (prod == null)
                     return HttpStatusCode.NotFound;
 
-                cat.Name = product.Name;
+                prod.Name = product.Name;
+                prod.Categories = product.Categories;
                 session.SaveChanges();
                 return HttpStatusCode.OK;
             }
