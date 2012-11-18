@@ -135,6 +135,7 @@ module Product {
 
             scope.btnClear_Click = function () {
                 scope.Product = null;
+                scope.CategoriesList.forEach(function (c: CategoryModelCheckable) { c.Checked = false; });
             }
         }
     }

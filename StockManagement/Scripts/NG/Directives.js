@@ -5,7 +5,7 @@ angular.module('directives', []).directive('alertTbs', function ($timeout) {
         scope: {
             messageData: '=messageData'
         },
-        template: '<div class="alert alert-{{messageData.type}}">' + '<button type="button" id="btnClose" class="close" data-ng-click="btnClose_Click()">x</button>' + '<strong>{{messageData.header}}</strong> {{messageData.message}}' + '</div>',
+        templateUrl: '/Content/NG-DirectiveTemplates/alertTbs.html',
         link: function (scope, iElement, attrs, controller) {
             scope.btnClose_Click = function () {
                 scope.messageData = null;
@@ -13,6 +13,7 @@ angular.module('directives', []).directive('alertTbs', function ($timeout) {
             if(attrs.hideIn != undefined) {
                 var delay = parseInt(attrs.hideIn);
                 if(!isNaN(delay)) {
+                    console.log("Delay is ", delay);
                     delay *= 1000;
                     scope.$watch('messageData', function () {
                         $timeout(function () {

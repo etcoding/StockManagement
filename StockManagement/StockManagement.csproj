@@ -160,7 +160,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\TestController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -181,6 +180,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\NG-DirectiveTemplates\alertTbs.html" />
     <Content Include="Content\NG-Views\stores.html" />
     <Content Include="Content\NG-Views\categories.html" />
     <Content Include="Content\NG-Views\products.html" />
