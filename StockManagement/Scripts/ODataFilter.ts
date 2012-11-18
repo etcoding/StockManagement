@@ -1,10 +1,7 @@
 class ODataFilter {
-    public Filter: string;
-    public OrderBy: string;
-    public Top: number;
-    public Skip: number;
-
-    ToString(): string {
-        return "";
-    }
+    public $filter: string;
+    public $orderby: string;
+    public $top: number;
+    public $skip: number;
+    public $select: string;
 }

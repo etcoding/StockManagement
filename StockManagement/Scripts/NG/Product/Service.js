@@ -6,8 +6,7 @@ var Product;
         }
         Service.prototype.GetAll = function (filter, success, error) {
             var provider = this.resource("/api/Product/");
-            provider.query({
-            }, success, error);
+            provider.query(filter, success, error);
         };
         Service.prototype.Get = function (id, success, error) {
             if(id.length == 0) {

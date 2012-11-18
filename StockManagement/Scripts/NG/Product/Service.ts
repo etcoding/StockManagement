@@ -10,7 +10,7 @@ module Product {
 
         GetAll(filter: ODataFilter, success: (categories: ProductModel[]) => any, error: (reason: any) =>any) {
             var provider = this.resource("/api/Product/");
-            provider.query({}, success, error);
+            provider.query(filter, success, error);
         }
 
         Get(id: string, success: (Product: ProductModel) => any, error: (reason: string) => any) {
@@ -40,6 +40,11 @@ module Product {
 
         Delete(Product: ProductModel, success: () => void , error: (reason: any) =>void ) {
             var provider = this.resource("/api/Product");
+            // catch with raven Ids  here - I only need to pass an id here, and the code could look like this:
+            //  var provider = this.resource("/api/Product/:productId");
+            //  provider.delete({ productId: Product.Id }, success, error);
+            // but with raven's ids looking like "product/123" it gets confused, and responds with 404.
+            // so what I will do instead is just pass the whole object, and MVC will happily figure the id out 
             provider.delete (Product, success, error);
         }
     }

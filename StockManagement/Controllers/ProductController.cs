@@ -88,11 +88,11 @@ namespace StockManagement.Controllers
         {
             using (var session = Raven.Instance.Store.OpenSession())
             {
-                var cat = session.Load<Product>(id);
-                if (cat == null)
+                var prod = session.Load<Product>(id);
+                if (prod == null)
                     return HttpStatusCode.NotFound;
 
-                session.Delete<Product>(cat);
+                session.Delete<Product>(prod);
                 session.SaveChanges();
                 return HttpStatusCode.OK;
             }
