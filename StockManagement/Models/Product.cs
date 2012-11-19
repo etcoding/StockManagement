@@ -7,12 +7,9 @@ namespace StockManagement.Models
     {
         public string Id { get; set; }
         public string Name { get; set; }
-
         public List<Category> Categories { get; set; }
 
-        public Product()
-        {
-        }
+        public Product() { }
 
         public Product(string name)
             : this()

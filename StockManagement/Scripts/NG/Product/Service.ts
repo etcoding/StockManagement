@@ -11,8 +11,8 @@ module Product {
         GetAll(filter: ODataFilter, success: (products: ProductModel[]) => any, error: (reason: any) =>any) {
             var provider = this.resource("/api/Product/");
 
-            // interesting issue here - even though I expect an array of ProductModel, I get instances of  Resource class..
-            // which means I only get data, no code
+            // Remember that TS is a JS - even though I declare that I expect an array of ProductModel, JS provides no type safety,
+            // so any object can be passed in.
             provider.query(filter, success, error);
         }
 
